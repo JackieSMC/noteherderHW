@@ -4,36 +4,6 @@ import './NoteForm.css'
 
 
 class NoteForm extends Component {
-    constructor () {
-        super()
-
-        this.state = {
-            notes: {
-                title: '',
-                message: '',
-            },
-        }
-        this.onTitleChange = this.onTitleChange.bind(this)
-        this.onMessageChange = this.onMessageChange.bind(this)
-    }
-    onTitleChange(ev) {
-        let updatedNotes = this.state.notes
-        updatedNotes.title = ev.target.value
-
-        this.setState({
-            notes: updatedNotes
-        })
-    }
-
-    onMessageChange(ev) {
-        let updatedNotes = this.state.notes
-        updatedNotes.message = ev.target.value
-
-        this.setState({
-            notes: updatedNotes
-        })
-    }
-
     render() {
         return (
         <div className="NoteForm">
@@ -43,8 +13,8 @@ class NoteForm extends Component {
                         type="text" 
                         name="title" 
                         placeholder="Title your note" 
-                        value={this.state.notes.title} 
-                        onChange={this.onTitleChange} />
+                        value={this.props.getTitle} 
+                        onChange={this.props.titleChange} />
                 </p>
                 <p>
                     <textarea 
@@ -52,7 +22,7 @@ class NoteForm extends Component {
                         cols="30" 
                         rows="10" 
                         placeholder="Just start typing..."
-                        onChange={this.onMessageChange}></textarea>
+                        onChange={this.props.messageChange}></textarea>
                 </p>
             </form>
         </div>
