@@ -13,7 +13,7 @@ class NoteForm extends Component {
 
     componentWillReceiveProps = (nextProps) => {
         const newId = nextProps.currentNoteId
-        if (newId !== this.state.note.id) {
+        if (newId !== this.state.notes.id) {
             this.setState({ note: nextProps.notes[newId] })
         }
     }
@@ -65,7 +65,7 @@ class NoteForm extends Component {
                     onChange={this.handleChanges}
                     value={this.state.note.body}></textarea>
                 </p>
-                <button type="submit">Save and New</button>
+                {/*<button type="submit">Save and New</button>*/}
                 <button onClick={this.handleRemove}>
                     <i className="fa fa-trash-o"></i>
                 </button>

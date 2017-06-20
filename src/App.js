@@ -77,14 +77,25 @@ syncNotes = () => {
 
   }
 
+  addNote = () => {
+    const note = {
+      id: null,
+      title: '',
+      body: '',
+    }
+    this.saveNote(note)
+  }
+
   setCurrentNoteId = (noteId) => {
     this.setState({ currentNoteId: noteId })
   }
+
   renderMain = () => {
     const actions = {
       saveNote: this.saveNote,
       removeNote: this.removeNote,
       setCurrentNoteId: this.setCurrentNoteId,
+      addNote: this.addNote,
     }
 
     const noteData = {
@@ -109,6 +120,7 @@ syncNotes = () => {
     );
   }
 }
+
 
 
 export default App;
